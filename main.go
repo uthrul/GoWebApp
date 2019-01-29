@@ -22,7 +22,7 @@ const doc = `
 <html>
   <head><title>Example Title</title></head>
   <body>
-    <h1>Hello Templates</h1>
+    <h1>Frist Templates</h1>
   </body>
 </html>
 `
