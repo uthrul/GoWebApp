@@ -1,6 +1,4 @@
-# web go
-
--pluralsight go creating webapps-
+# golang creating webapps
 
 Writing a Web Application in Go.
 =======================================
