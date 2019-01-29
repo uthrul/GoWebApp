@@ -10,7 +10,11 @@ func main() {
 		w.Header().Add("Content Type", "text/html")
 		tmpl, err := template.New("test").Parse(doc)
 		if err == nil {
-			tmpl.Execute(w, req.URL.Path)
+			context := Context{
+				[3]string{"Lemon", "Orange", "Apple"},
+				"the title",
+			}
+			tmpl.Execute(w, context)
 		}
 	})
 
@@ -20,13 +24,19 @@ func main() {
 const doc = `
 <!DOCTYPE html>
 <html>
-  <head><title>Example Title</title></head>
+  <head><title>{{.Title}}</title></head>
   <body>
-    {{if eq . "/Google"}}
-    	<h1>Hey, Google made Go!</h1>
-    {{else}}
-    	<h1>Hello, {{.}}</h1>
-    {{end}}
+    <h1>List of Fruit</h1>
+    <ul>
+      {{range .Fruit}}
+      	<li>{{.}}</li>
+      {{end}}
+    </ul>
   </body>
 </html>
 `
+
+type Context struct {
+	Fruit [3]string
+	Title string
+}
