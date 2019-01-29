@@ -1,6 +1,4 @@
-# golang creating webapps
-
-Writing a Web Application in Go.
+# golang creating webapps.
 =======================================
 
 0. package
